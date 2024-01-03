@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="chrome=1,IE=edge">
+    <title>깡코딩 - 초보자도 만들 수 있는 스크를인터렉션1편</title>
+</head>
+<style>
+    /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    *, body {
+        -ms-overflow-style: none; /* 인터넷 익스플로러 */
+        scrollbar-width: none; /* 파이어폭스 */
+        margin: 0;
+        padding: 0;
+    }
+    .com_tit {
+        padding: 0 0 80px;
+        font-size: 70px;
+        text-align: center;
+        margin: 0;
+    }
+    .sec01 {
+        background: #ddd;
+    }
+    .sec01 .content {
+        font-size: 170px;
+    }
+    .sec01 .content .progress {
+        position: fixed;
+        left: 50%;
+        top: 500px;
+        width: 70%;
+        height: 100px;
+        margin-left: -35%;
+        border: 1px solid #222;;
+        text-align: center;
+    }
+    .sec01 .content .progress .bar {
+        display: block;
+        width: 0%;
+        height: 100%;;
+        background-color: #111;
+    }
+    .sec01 .content .progress .txt {
+        font-size: 30px;
+    }
+</style>
+<body>
+<div class="wrap">
+    <section class="sec01">
+        <h2 class="com_tit">SCROLL PERCENTAGE</h2>
+        <article class="content">
+            <div class="progress">
+                <span class="bar"></span>
+                <p class="txt">
+                    0%
+                </p>
+            </div>
+            가<br>
+            나<br>
+            다<br>
+            라<br>
+            마<br>
+            바<br>
+            사<br>
+            아<br>
+            자<br>
+            차<br>
+            카<br>
+            타<br>
+            파<br>
+            하
+        </article>
+    </section>
+</div>
+<script type="text/javascript">
+
+  window.onload = () => {
+    const text = document.querySelector('.progress .txt')
+    const progressBar = document.querySelector('progress .bar')
+  }
+
+  window.onload = () => {
+    const text = document.querySelector('.progress .txt')
+    const progressBar = document.querySelector('.progress .bar')
+
+    const getPercent = () => {
+      const scrollHeight = document.querySelector('.sec01').offsetHeight
+      const scrollRealHeight = scrollHeight - window.innerHeight
+      const winScrollTop = window.pageYOffset
+      const scrollPercent = (winScrollTop / scrollRealHeight) * 100
+      const textPercent = Math.round(scrollPercent)
+
+      render(textPercent, scrollPercent)
+    }
+
+    const render = (textPercent, scrollPercent) => {
+      text.innerText = textPercent + '%'
+      progressBar.style.width = scrollPercent + '%'
+    }
+
+    const init = () => {
+      getPercent()
+    }
+
+    document.addEventListener('scroll', () => {
+      getPercent()
+    }, false)
+
+    init() // 초기화
+  }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
