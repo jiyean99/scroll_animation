@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="chrome=1,IE=edge">
+    <title>패럴럭스 스크롤</title>
+</head>
+<style>
+    /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    *, body {
+        -ms-overflow-style: none; /* 인터넷 익스플로러 */
+        scrollbar-width: none; /* 파이어폭스 */
+        margin: 0;
+        padding: 0;
+    }
+    .motion_area {
+        position: absolute;
+        width: 100%;
+        height: calc(100% * 6);
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .bg-01, .bg-02, .bg-03, .bg-04, .bg-05, .bg-06 {
+        width: 100%;
+        height: 100%;
+    }
+    .bg-01 {
+        background: linear-gradient(180deg, #DDE3FB 0%, #C9E2F8 100%);
+    }
+    .bg-02 {
+        background: linear-gradient(180deg, #C9E2F8 0%, #A2D2FA 100%);
+    }
+    .bg-03 {
+        background: linear-gradient(180deg, #A2D2FA 0%, #9AB7FB 100%);
+    }
+    .bg-04 {
+        background: linear-gradient(180deg, #9AB7FB 0%, #AE93D6 100%);
+    }
+    .bg-05 {
+        background: linear-gradient(180deg, #AE93D6 0%, #7276B1 100%);
+    }
+    .bg-06 {
+        background: linear-gradient(180deg, #7276B1 0%, #353551 100%);
+    }
+    .bg-ele {
+        width: 100%;
+        height: 30%;
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .cloud {
+        position: absolute;
+        width: 120px;
+        height: auto;
+    }
+    .cloud.left{
+        width: 110px;
+        left: -1%;
+        top: 50%;
+    }
+    .cloud.right{
+        right: 5%;
+        top: 45%;
+    }
+    .motion_moon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<body>
+<div class="motion_area">
+    <div class="bg-01 active"></div>
+    <div class="bg-02"></div>
+    <div class="bg-03"></div>
+    <div class="bg-04"></div>
+    <div class="bg-05"></div>
+    <div class="bg-06"></div>
+    <div class="bg-ele">
+        <svg xmlns="http://www.w3.org/2000/svg" width="131" height="70" viewBox="0 0 131 70" fill="none" class="cloud left">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M91 30.5C91 30.6692 90.9986 30.8381 90.9959 31.0066C97.5767 31.1832 103.19 34.8628 105.658 40.0651C106.266 40.022 106.88 40 107.5 40C120.479 40 131 49.6259 131 61.5C131 64.5191 130.32 67.3929 129.092 70H1.20013C0.418779 67.3019 0 64.4499 0 61.5C0 44.8209 13.3881 31.2688 30.0041 31.004C30.0014 30.8363 30 30.6683 30 30.5C30 13.6553 43.6553 0 60.5 0C77.3447 0 91 13.6553 91 30.5Z" fill="url(#paint0_linear_166_109)"/>
+            <defs>
+                <linearGradient id="paint0_linear_166_109" x1="65.5" y1="0" x2="65.5" y2="70" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="white"/>
+                    <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="131" height="70" viewBox="0 0 131 70" fill="none" class="cloud right">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M91 30.5C91 30.6692 90.9986 30.8381 90.9959 31.0066C97.5767 31.1832 103.19 34.8628 105.658 40.0651C106.266 40.022 106.88 40 107.5 40C120.479 40 131 49.6259 131 61.5C131 64.5191 130.32 67.3929 129.092 70H1.20013C0.418779 67.3019 0 64.4499 0 61.5C0 44.8209 13.3881 31.2688 30.0041 31.004C30.0014 30.8363 30 30.6683 30 30.5C30 13.6553 43.6553 0 60.5 0C77.3447 0 91 13.6553 91 30.5Z" fill="url(#paint0_linear_166_109)"/>
+            <defs>
+                <linearGradient id="paint0_linear_166_109" x1="65.5" y1="0" x2="65.5" y2="70" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="white"/>
+                    <stop offset="1" stop-color="white" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+        </svg>
+        <div class="motion_moon active"></div>
+    </div>
+</div>
+</body>
+</html>
